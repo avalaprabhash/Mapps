@@ -1,0 +1,60 @@
+<p>demo-component works!</p>
+<label for="a">Enter a number: </label>
+<input type="number" [(ngModel)]="a" id="a">
+<br><br>
+<label for="b">Enter another number: </label>
+<input type="number" [(ngModel)]="b" id="b">
+<p>Greater : {{greater}}</p>
+<p>Smaller : {{smaller}}</p>
+<p>Sum : {{ greater + smaller }}</p>
+<label for="name">Enter your name!: </label>
+<input type="text" [(ngModel)]="name">
+@if (name.length >= 3) {
+  <h2>Hello {{ name }}</h2>
+} @else if (name.length > 0) {
+  <p class="error">Name should be at least 3 characters long.</p>
+}
+@for(student of students; track $index){
+  <p>{{$index+1}}. {{student.name}} - {{student.marks}} -  
+    @if (student.marks >= 35) {
+      <span class="pass">Pass</span>
+    } @else {
+      <span class="fail">Fail</span>
+    }</p>
+}
+
+<h1>Count: {{count}}</h1>
+
+<button (click)="increment()">Increment</button>
+<button (click)="decrement()">Decrement</button>
+<button (click)="reset()">Reset</button>
+
+<br><br>
+<input
+  type="checkbox"
+  id="terms"
+  (change)="strike(); access()"
+>
+<label
+  for="terms"
+  [style.text-decoration]="!checked ? 'line-through' : 'none'">
+  Accept the terms
+</label>
+
+<button [disabled]="checked">
+    Submit
+</button>
+
+<p>{{ say | uppercase }}</p>
+
+<p>{{ say | lowercase }}</p>
+
+<p>{{ say | titlecase }}</p>
+
+<p>{{ salary | currency:'INR' }}</p>
+
+<p>{{ today | date:'dd/MM/yyyy' }}</p>
+
+<p>{{ 0.75 | percent }}</p>
+
+

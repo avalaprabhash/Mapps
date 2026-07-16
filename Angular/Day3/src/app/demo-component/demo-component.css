@@ -1,0 +1,43 @@
+:host {
+  display: block;
+}
+
+.demo-container {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+}
+
+.demo-container label {
+  font-weight: 600;
+}
+
+.demo-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+button {
+  min-width: 8rem;
+}
+
+.error {
+  color: #b91c1c;
+}
+
+.pass {
+  color: #15803d;
+}
+
+.fail {
+  color: #b91c1c;
+}
