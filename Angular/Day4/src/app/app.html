@@ -1,0 +1,28 @@
+<div>
+  <h3>filter employees</h3>
+  <select [(ngModel)]="status" (change)="filterEmployees()" name="status" id="status">
+    <option value="All">All</option>
+    <option value="Completed">Completed</option>
+    <option value="Pending">Pending</option>
+    <option value="Rejected">Rejected</option>
+  </select>
+</div>
+@for(employee of employees; track employee.empId) {
+  <div>
+    <div [class.completed]="employee.taskStatus === 'Completed'"
+   [class.pending]="employee.taskStatus === 'Pending'"
+   [class.rejected]="employee.taskStatus === 'Rejected'">
+
+    <p>Employee Name : {{employee.empName}}</p>
+    <p>Employee Id : {{employee.empId}}</p>
+    <p>Task Status: {{ employee.taskStatus }}</p>
+
+  </div>
+
+<p [class.disabled]="employee.isDisabled">
+    Employee Status:
+    {{ employee.isDisabled ? 'Disabled' : 'Active' }}
+</p>
+    <hr>
+  </div>
+}
