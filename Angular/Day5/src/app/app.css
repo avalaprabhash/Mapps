@@ -1,0 +1,57 @@
+:host {
+  display: block;
+  font-family: Arial, sans-serif;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.todo-shell {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.todo-form button,
+.secondary,
+.remove-btn {
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.todo-form button {
+  background: #2563eb;
+  color: white;
+  padding: 0.7rem 1rem;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.todo-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.secondary {
+  background: #e5e7eb;
+  padding: 0.4rem 0.7rem;
+}

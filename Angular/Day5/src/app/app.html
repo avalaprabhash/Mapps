@@ -1,0 +1,43 @@
+<main class="todo-shell">
+  <section class="todo-card">
+    <header class="todo-header">
+      <div>
+        <p class="eyebrow">To do app</p>
+      </div>
+      <span class="todo-counter">{{ remainingCount() }} item{{ remainingCount() === 1 ? '' : 's' }} left</span>
+    </header>
+
+    <form class="todo-form" (ngSubmit)="addTodo()">
+      <input
+        type="text"
+        name="newTodo"
+        [(ngModel)]="newTodo"
+        aria-label="New todo"
+      />
+      <button type="submit">Add</button>
+    </form>
+
+    <ul class="todo-list" *ngIf="todos().length; else emptyState">
+      <li class="todo-item" *ngFor="let todo of todos(); trackBy: trackByTodo">
+        <label class="todo-label">
+          <input type="checkbox" [checked]="todo.completed" (change)="toggleTodo(todo.id)" />
+          <span [class.completed]="todo.completed">{{ todo.title }}</span>
+        </label>
+        <button type="button" class="remove-btn" (click)="removeTodo(todo.id)" aria-label="Remove todo">
+          Remove
+        </button>
+      </li>
+    </ul>
+
+    <ng-template #emptyState>
+      <p class="empty-state">No tasks yet. Add one to get started.</p>
+    </ng-template>
+
+    <footer class="todo-footer">
+      <span>{{ completedCount() }} completed</span>
+      <button type="button" class="secondary" (click)="clearCompleted()" *ngIf="completedCount() > 0">
+        Clear completed
+      </button>
+    </footer>
+  </section>
+</main>
