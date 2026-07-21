@@ -1,0 +1,38 @@
+You can add global styles to this file, and also import other style files
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --card-color: #ffffff;
+  --primary-color: #1976d2;
+}
+
+.dark-theme {
+  --bg-color: #121212;
+  --text-color: #e6e6e6;
+  --card-color: #1e1e1e;
+  --primary-color: #64b5f6;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  transition: background-color 200ms linear, color 200ms linear;
+}
+/* Basic dark theme styles toggled on the <body> element */
+body.dark-theme {
+	background-color: #121212;
+	color: #e6e6e6;
+}
+.class{
+    background: #000;
+    border-radius: 10px;
+}
+/* Example: allow theme component button to remain visible */
+button {
+  color: #000;
+  background: white;
+	padding: 0.5rem 1rem;
+	border-radius: 10px;
+}
+

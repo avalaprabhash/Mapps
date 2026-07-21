@@ -1,0 +1,14 @@
+/* Basic dark theme styles toggled on the <body> element */
+body.dark-theme {
+	background: #000;
+}
+.dark{
+	background-color: #121212;
+	color: #e6e6e6;
+}
+/* Example: allow theme component button to remain visible */
+button {
+	padding: 0.5rem 1rem;
+	border-radius: 4px;
+}
+

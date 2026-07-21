@@ -1,0 +1,55 @@
+<div class="form-container">
+  <form #f="ngForm" class="template-form">
+
+    <div class="form-group">
+      <label for="name">Name<span class="required">*</span></label>
+      <input class="input-field" id="name" type="text" name="name"
+        [(ngModel)]="name" #n="ngModel" required [minlength]="minLen">
+
+      <div class="validation-messages" *ngIf="n.invalid && (n.touched || n.dirty || f.submitted)">
+        <div class="validation-text" *ngIf="n.errors?.['required']">
+          Name is required.
+        </div>
+        <div class="validation-text" *ngIf="n.errors?.['minlength']">
+          Minimum {{ n.errors['minlength'].requiredLength }} characters — got {{ n.errors['minlength'].actualLength || 0 }}.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password <span class="required">*</span></label>
+      <input class="input-field" id="password" type="password" name="password"
+        [(ngModel)]="password" #p="ngModel" minlength="8" required>
+
+      <div class="validation-messages" *ngIf="p.invalid && (p.touched || p.dirty || f.submitted)">
+        <div class="validation-text" *ngIf="p.errors?.['required']">
+          Password is required.
+        </div>
+        <div class="validation-text" *ngIf="p.errors?.['minlength']">
+          Minimum length of password should be 8.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="dob">Date of birth <span class="required">*</span></label>
+      <input class="input-field" id="dob" type="date" name="dob"
+        [(ngModel)]="dob" #d="ngModel" (change)="calculateAge()">
+
+      <div class="validation-messages" *ngIf="d.invalid && (d.touched || d.dirty || f.submitted)">
+        <div class="validation-text" *ngIf="age < 18">
+          Age should be greater than 18.
+        </div>
+      </div>
+    </div>
+
+    <button class="submit-btn" type="submit" [disabled]="f.invalid">Submit</button>
+
+    <div class="form-summary">
+      <p class="summary-label">Name</p>
+      <p class="summary-value">{{ name || '—' }}</p>
+      <p class="summary-label">Age</p>
+      <p class="summary-value">{{ age || '—' }}</p>
+    </div>
+  </form>
+</div>
