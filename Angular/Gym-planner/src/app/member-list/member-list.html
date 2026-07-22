@@ -1,0 +1,16 @@
+<h2>Members List</h2>
+
+
+<div *ngIf="members.length > 0; else nomem">
+  <div *ngFor="let member of members">
+    <h3>{{ member.name }}</h3>
+    <p>Age: {{ member.age }}</p>
+    <p>Goal: {{ member.goal }}</p>
+    <p>Trainer: {{ member.trainer }}</p>
+    <hr>
+  </div>
+</div>
+
+<ng-template #nomem>
+  <p>No Members Found</p>
+</ng-template>

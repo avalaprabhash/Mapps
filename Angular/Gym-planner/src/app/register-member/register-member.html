@@ -1,0 +1,122 @@
+<h3>Gym registration form</h3>
+
+<form [formGroup]="gymForm" (ngSubmit)="submit()">
+    <div class="personal_details">
+        <h3>Personal details</h3>
+        <label for="name">Name: </label>
+        <input type="text" placeholder="Enter your full name" formControlName="name">
+
+        <label for="age">Age: </label>
+        <input type="number" placeholder="Enter your age" formControlName="age">
+
+        <div>
+            <label for="gender">Geneder: </label> <br>
+            <input type="radio" id="male" value="Male" formControlName="gender">
+            <label for="male">Male</label><br>
+
+            <input type="radio" id="female" value="Female" formControlName="gender">
+            <label for="female">Female</label><br>
+
+            <input type="radio" id="other" value="Other" formControlName="gender">
+            <label for="other">Other</label>
+        </div>
+
+        <label for="email">Email: </label>
+        <input type="email" placeholder="Enter your email" formControlName="email">
+
+        <label for="phonenumber">Phone Number: </label>
+        <input type="number" placeholder="Enter your phone number" formControlName="phone">
+    </div>
+
+    <div class="physical_details">
+        <h3>Physical details</h3>
+        <label for="height">Height: </label>
+        <input type="number" placeholder="Enter your height in cms" formControlName="height">
+
+        <label for="weight">Weight: </label>
+        <input type="number" placeholder="Enter your weight in kgs" formControlName="weight">
+
+        <div formArrayName="medicalConditions">
+
+    <h3>Medical Conditions</h3>
+
+    @for(condition of medicalConditions.controls; track $index){
+
+        <div>
+
+            <input
+                type="text"
+                [formControlName]="$index"
+                placeholder="Enter Medical Condition">
+
+            <button
+                type="button"
+                (click)="removeMedicalCondition($index)">
+                Remove
+            </button>
+
+        </div>
+
+    }
+
+    <button
+        type="button"
+        (click)="addMedicalCondition()">
+        Add Medical Condition
+    </button>
+
+</div>
+
+</div>
+<h3>Workout Days</h3>
+
+    <div class="fitness_preference">
+        <label for="goal">Choose your goal: </label>
+        <select name="goal" id="goal" formControlName="goal">
+            <option value="lose_weight">Lose Weight</option>
+            <option value="gain_weight">Gain Muscle</option>
+            <option value="improve_endurance">Improve Endurance</option>
+            <option value="maintain_weight">Maintain weight</option>
+        </select>
+
+        <label for="trainer">Select your training preference: </label>
+        <select name="trainer" id="trainer" formControlName="trainer">
+            <option value="morning">Morning</option>
+            <option value="evening">Evening</option>
+            <option value="personal_trainer">Personal Trainer</option>
+        </select>
+
+        <div formArrayName="workoutDays">
+
+
+    @for(day of workoutDays.controls; track $index){
+
+        <div>
+
+            <input
+                type="text"
+                [formControlName]="$index"
+                placeholder="Enter Workout Day">
+
+            <button
+                type="button"
+                (click)="removeWorkoutDay($index)">
+                Remove
+            </button>
+
+        </div>
+
+    }
+
+    <button
+        type="button"
+        (click)="addWorkoutDay()">
+        Add Workout Day
+    </button>
+
+</div>
+    </div>
+
+
+    <button type="submit">Register</button>
+</form>
